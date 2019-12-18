@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.WebApi.Api", "Vavatech.WebApi.Api\Vavatech.WebApi.Api.csproj", "{13EAC854-F3BE-4B1D-AEDD-B2F54FD9BDB8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vavatech.WebApi.Models", "Vavatech.WebApi.Models\Vavatech.WebApi.Models.csproj", "{0837EACD-A961-4687-BB94-D70E090548B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.WebApi.IServices", "Vavatech.WebApi.IServices\Vavatech.WebApi.IServices.csproj", "{05FFBB0E-397F-490C-8458-514C0B6A4426}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.WebApi.FakeServices", "Vavatech.WebApi.FakeServices\Vavatech.WebApi.FakeServices.csproj", "{DC46BDAE-BFFB-449B-8BBF-16104290B8A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.WebApi.ConsoleClient", "Vavatech.WebApi.ConsoleClient\Vavatech.WebApi.ConsoleClient.csproj", "{B14842EA-54C6-422A-9246-90A221427001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.WebApi.DbServices", "Vavatech.WebApi.DbServices\Vavatech.WebApi.DbServices.csproj", "{CB34C24A-0234-4B5D-B1F5-8C8B971570B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13EAC854-F3BE-4B1D-AEDD-B2F54FD9BDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13EAC854-F3BE-4B1D-AEDD-B2F54FD9BDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13EAC854-F3BE-4B1D-AEDD-B2F54FD9BDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13EAC854-F3BE-4B1D-AEDD-B2F54FD9BDB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0837EACD-A961-4687-BB94-D70E090548B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0837EACD-A961-4687-BB94-D70E090548B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0837EACD-A961-4687-BB94-D70E090548B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0837EACD-A961-4687-BB94-D70E090548B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05FFBB0E-397F-490C-8458-514C0B6A4426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05FFBB0E-397F-490C-8458-514C0B6A4426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05FFBB0E-397F-490C-8458-514C0B6A4426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05FFBB0E-397F-490C-8458-514C0B6A4426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC46BDAE-BFFB-449B-8BBF-16104290B8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC46BDAE-BFFB-449B-8BBF-16104290B8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC46BDAE-BFFB-449B-8BBF-16104290B8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC46BDAE-BFFB-449B-8BBF-16104290B8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B14842EA-54C6-422A-9246-90A221427001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B14842EA-54C6-422A-9246-90A221427001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B14842EA-54C6-422A-9246-90A221427001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B14842EA-54C6-422A-9246-90A221427001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB34C24A-0234-4B5D-B1F5-8C8B971570B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB34C24A-0234-4B5D-B1F5-8C8B971570B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB34C24A-0234-4B5D-B1F5-8C8B971570B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB34C24A-0234-4B5D-B1F5-8C8B971570B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E873F371-B65D-4915-9A61-55575DCCFF3C}
+	EndGlobalSection
+EndGlobal
