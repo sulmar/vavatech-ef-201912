@@ -26,7 +26,9 @@ namespace Vavatech.WebApi.Api
 
             IUnityContainer container = new UnityContainer();
 
-            container.RegisterType<ICustomerService, FakeCustomerService>();
+            container.RegisterType<ICustomerService, DbCustomerService>();
+            container.RegisterType<Faker<Customer>, CustomerFaker>();
+            container.RegisterType<Faker<Address>, AddressFaker>();
 
             //container.RegisterType<IProductService, FakeProductService>();
             //container.RegisterType<Faker<Product>, ProductFaker>(new ContainerControlledLifetimeManager());

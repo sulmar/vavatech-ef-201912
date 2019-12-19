@@ -33,7 +33,6 @@ namespace Vavatech.WebApi.Api.Controllers
         [Authorize]
         public IHttpActionResult Get()
         {
-
             //if (!this.User.Identity.IsAuthenticated)
             //{
             //    return Unauthorized();
@@ -42,7 +41,6 @@ namespace Vavatech.WebApi.Api.Controllers
             ClaimsIdentity identity = (ClaimsIdentity)this.User.Identity;
 
             var email = identity.FindFirst(ClaimTypes.Email).Value;
-
 
             var customers = customerService.Get();
 

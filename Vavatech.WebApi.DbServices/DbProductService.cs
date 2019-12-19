@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,15 @@ namespace Vavatech.WebApi.DbServices
 
         public void Add(Product entity)
         {
+            Trace.WriteLine(context.Entry(entity).State);
+
             context.Products.Add(entity);
+
+            Trace.WriteLine(context.Entry(entity).State);
+
             context.SaveChanges();
+
+            Trace.WriteLine(context.Entry(entity).State);
         }
 
         public bool Exists(int id)
@@ -56,12 +64,48 @@ namespace Vavatech.WebApi.DbServices
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            Product product = new Product { Id = id };
+//context.Entry(product).State = System.Data.Entity.EntityState.Deleted;
+  
+            context.Products.Remove(product);
+            context.SaveChanges();
+
+            //Product product = Get(id);
+            //context.Products.Remove(product);
+            //context.SaveChanges();
         }
 
         public void Update(Product entity)
         {
-            throw new NotImplementedException();
+            Trace.WriteLine(context.Entry(entity).State);
+
+            context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+
+            //Product product = Get(entity.Id);
+            Trace.WriteLine(context.Entry(entity).State);
+
+            //product.Name = entity.Name;
+            //product.Color = entity.Color;
+
+            Trace.WriteLine(context.Entry(entity).State);
+            context.SaveChanges();
+            Trace.WriteLine(context.Entry(entity).State);
+        }
+
+        public void Update(int id, string name)
+        {
+            Product entity = new Product { Id = id, Name = name };
+            Trace.WriteLine(context.Entry(entity).State);
+
+            context.Products.Attach(entity);
+            Trace.WriteLine(context.Entry(entity).State);
+
+            context.Entry(entity).Property(p => p.Name).IsModified = true;
+            Trace.WriteLine(context.Entry(entity).State);
+
+            context.SaveChanges();
+            Trace.WriteLine(context.Entry(entity).State);
+
         }
     }
 }

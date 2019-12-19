@@ -48,5 +48,10 @@ namespace Vavatech.WebApi.FakeServices
 
             return results.ToList();
         }
+
+        public void Update(int id, string name)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

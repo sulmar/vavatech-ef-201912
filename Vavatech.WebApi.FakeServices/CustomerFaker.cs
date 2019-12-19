@@ -6,9 +6,10 @@ using Vavatech.WebApi.Models;
 
 namespace Vavatech.WebApi.FakeServices
 {
+
     public class CustomerFaker : Faker<Customer>
     {
-        public CustomerFaker()
+        public CustomerFaker(Faker<Address> addressFaker)
         {
             StrictMode(true);
             UseSeed(1);
@@ -18,13 +19,13 @@ namespace Vavatech.WebApi.FakeServices
             RuleFor(p => p.Gender, f => (Gender) f.Person.Gender);
             RuleFor(p => p.Salary, f => f.Finance.Amount(100, 1000));
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.3f));
-            RuleFor(p => p.Pesel, f => f.Commerce.Ean13());
+            RuleFor(p => p.Pesel, f => f.Random.ReplaceNumbers("###########"));
             RuleFor(p => p.HashPassword, f => f.Internet.Password());
             Ignore(p => p.DateOfBirth);
-            Ignore(p => p.HomeAddress);
-            Ignore(p => p.InvoiceAddress);
+            RuleFor(p => p.HomeAddress, f => addressFaker.Generate());
+            RuleFor(p => p.InvoiceAddress, f => addressFaker.Generate());
             Ignore(p => p.MiddleName);
-            Ignore(p => p.Regon);
+            RuleFor(p => p.Regon, f => f.Random.ReplaceNumbers(new string('#', 14)));
 
         }
 

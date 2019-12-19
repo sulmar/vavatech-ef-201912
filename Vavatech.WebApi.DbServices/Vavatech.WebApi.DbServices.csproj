@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bogus, Version=28.4.4.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bogus.28.4.4\lib\net40\Bogus.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -55,6 +58,8 @@
     <Compile Include="Configurations\ProductConfiguration.cs" />
     <Compile Include="Conventions\AddressConvention.cs" />
     <Compile Include="Conventions\DateTime2Convention.cs" />
+    <Compile Include="DbCustomerService.cs" />
+    <Compile Include="DbEntityService.cs" />
     <Compile Include="DbProductService.cs" />
     <Compile Include="Migrations\201912181349135_InitialCreate.cs" />
     <Compile Include="Migrations\201912181349135_InitialCreate.designer.cs">
@@ -76,11 +81,19 @@
     <Compile Include="Migrations\201912181452500_AddFirstNameAndLastNameToUser.designer.cs">
       <DependentUpon>201912181452500_AddFirstNameAndLastNameToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912190851551_AddCustomersView.cs" />
+    <Compile Include="Migrations\201912190851551_AddCustomersView.designer.cs">
+      <DependentUpon>201912190851551_AddCustomersView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WarehouseContext.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Vavatech.WebApi.FakeServices\Vavatech.WebApi.FakeServices.csproj">
+      <Project>{DC46BDAE-BFFB-449B-8BBF-16104290B8A8}</Project>
+      <Name>Vavatech.WebApi.FakeServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Vavatech.WebApi.IServices\Vavatech.WebApi.IServices.csproj">
       <Project>{05FFBB0E-397F-490C-8458-514C0B6A4426}</Project>
       <Name>Vavatech.WebApi.IServices</Name>
@@ -110,6 +123,12 @@
     <EmbeddedResource Include="Migrations\201912181452500_AddFirstNameAndLastNameToUser.resx">
       <DependentUpon>201912181452500_AddFirstNameAndLastNameToUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912190851551_AddCustomersView.resx">
+      <DependentUpon>201912190851551_AddCustomersView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

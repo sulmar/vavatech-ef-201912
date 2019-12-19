@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Http;
+using System.Web.UI;
 using Vavatech.WebApi.IServices;
 using Vavatech.WebApi.Models;
 
@@ -50,6 +51,29 @@ namespace Vavatech.WebApi.Api.Controllers
             productService.Add(product);
 
             return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
+        }
+
+        // PUT /api/products/10
+
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult Put(int id, Product product)
+        {
+            if (id != product.Id)
+                return BadRequest();
+
+            productService.Update(product);
+
+            return Ok();
+        }
+
+        [HttpPatch]
+        [Route("{id}")]
+        public IHttpActionResult Patch(int id, [FromBody] string name)
+        {
+            productService.Update(id, name);
+
+            return Ok();
         }
 
         [Route("{id}")]

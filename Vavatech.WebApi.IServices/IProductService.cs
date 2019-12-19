@@ -9,6 +9,7 @@ namespace Vavatech.WebApi.IServices
         IEnumerable<Product> Get(string color);
         IEnumerable<Product> Get(decimal from, decimal to);
         IEnumerable<Product> Get(ProductSearchCriteria criteria);
+        void Update(int id, string name);
     }
 
     public class ProductSearchCriteria
