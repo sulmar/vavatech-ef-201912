@@ -24,6 +24,7 @@ namespace Vavatech.WebApi.FakeServices
             Ignore(p => p.HomeAddress);
             Ignore(p => p.InvoiceAddress);
             Ignore(p => p.MiddleName);
+            Ignore(p => p.Regon);
 
         }
 
