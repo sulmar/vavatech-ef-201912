@@ -60,6 +60,7 @@
     <Compile Include="Conventions\DateTime2Convention.cs" />
     <Compile Include="DbCustomerService.cs" />
     <Compile Include="DbEntityService.cs" />
+    <Compile Include="DbOrderService.cs" />
     <Compile Include="DbProductService.cs" />
     <Compile Include="Migrations\201912181349135_InitialCreate.cs" />
     <Compile Include="Migrations\201912181349135_InitialCreate.designer.cs">

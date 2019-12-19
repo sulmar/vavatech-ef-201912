@@ -9,6 +9,7 @@ using Vavatech.WebApi.Models;
 
 namespace Vavatech.WebApi.DbServices
 {
+
     public class DbCustomerService : DbEntityService<Customer>, ICustomerService
     {
         public DbCustomerService(WarehouseContext context) : base(context)
