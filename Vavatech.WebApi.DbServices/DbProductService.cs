@@ -47,9 +47,27 @@ namespace Vavatech.WebApi.DbServices
             throw new NotImplementedException();
         }
 
+
         public IEnumerable<Product> Get(ProductSearchCriteria criteria)
         {
-            throw new NotImplementedException();
+            var results = context.Products.AsQueryable();
+
+            if (criteria.From.HasValue)
+            {
+                results = results.Where(p => p.UnitPrice >= criteria.From);
+            }
+
+            if (criteria.To.HasValue)
+            {
+                results = results.Where(p => p.UnitPrice <= criteria.To);
+            }
+
+            if (!string.IsNullOrEmpty(criteria.Color))
+            {
+                results = results.Where(p => p.Color == criteria.Color);
+            }
+
+            return results.ToList();
         }
 
         public IEnumerable<Product> Get()
