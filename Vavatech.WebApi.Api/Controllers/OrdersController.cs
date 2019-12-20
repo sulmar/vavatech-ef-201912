@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.UI.WebControls;
 using Vavatech.WebApi.FakeServices;
 using Vavatech.WebApi.IServices;
 using Vavatech.WebApi.Models;
 
 namespace Vavatech.WebApi.Api.Controllers
 {
-    [RoutePrefix("api/orders")]
-    public class OrderController : ApiController
+  
+    public class OrdersController : ApiController
     {
         private readonly IOrderService orderService;
 
-        public OrderController(IOrderService orderService)
+        public OrdersController(IOrderService orderService)
         {
             this.orderService = orderService;
         }
@@ -29,17 +30,19 @@ namespace Vavatech.WebApi.Api.Controllers
         [HttpPost]
         public IHttpActionResult Post(Order order)
         {
-            CustomerFaker customerFaker = new CustomerFaker(new AddressFaker());
+            AddressFaker addressFaker = new AddressFaker();
+            CustomerFaker customerFaker = new CustomerFaker(addressFaker);
 
             order = new Order
             {
-                Customer = customerFaker.Generate(),
+                Customer = new Customer { Id = 4 },
                 Details = new List<OrderDetail>
-                { 
+                {
                     new OrderDetail { Item = new Product { Id = 1 }, Quantity = 3, UnitPrice = 2 },
                     new OrderDetail { Item = new Product { Id = 2 }, Quantity = 5, UnitPrice = 10 },
 
-                }
+                },
+                ShipAddress = addressFaker.Generate()
             };
 
             orderService.Add(order);

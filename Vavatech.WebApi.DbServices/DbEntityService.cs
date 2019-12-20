@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using Vavatech.WebApi.IServices;
 using Vavatech.WebApi.Models;
@@ -10,7 +11,7 @@ namespace Vavatech.WebApi.DbServices
     public class DbEntityService<TEntity> : IEntityService<TEntity>
         where TEntity : EntityBase, new()
     {
-        private readonly WarehouseContext context;
+        protected readonly WarehouseContext context;
 
         public DbEntityService(WarehouseContext context)
         {
@@ -19,10 +20,17 @@ namespace Vavatech.WebApi.DbServices
 
         protected DbSet<TEntity> entities => context.Set<TEntity>();
 
-        public void Add(TEntity entity)
+        public virtual void Add(TEntity entity)
         {
+            Trace.WriteLine(context.Entry(entity).State);
             entities.Add(entity);
+            Trace.WriteLine(context.Entry(entity).State);
+
+            // Pobiera graf wszystkich śledzonych obiektów
+            var entries = context.ChangeTracker.Entries();
+
             context.SaveChanges();
+            Trace.WriteLine(context.Entry(entity).State);
         }
 
         public bool Exists(int id)
@@ -40,7 +48,7 @@ namespace Vavatech.WebApi.DbServices
             return entities.Find(id);
         }
 
-        public void Remove(int id)
+        public virtual void Remove(int id)
         {
             TEntity entity = new TEntity { Id = id };
             entities.Remove(entity);

@@ -36,6 +36,8 @@ namespace Vavatech.WebApi.Api
             container.RegisterType<IProductService, DbProductService>();
             container.RegisterType<WarehouseContext>();
 
+            container.RegisterType<IOrderService, DbOrderService>();
+
 
             container.RegisterType<IAuthenticationFilter, BasicAuthenticationFilter>();
 
