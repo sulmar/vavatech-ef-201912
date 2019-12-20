@@ -35,6 +35,13 @@
             context.Services.AddOrUpdate(p => p.Id, services);
 
             context.Customers.AddOrUpdate(p => p.Id, customerFaker.Generate(50).ToArray());
+
+            EmployeeFaker employeeFaker = new EmployeeFaker();
+            context.Users.AddOrUpdate(p => p.Id, employeeFaker.Generate(10).ToArray());
+
+            GuestFaker guestFaker = new GuestFaker();
+            context.Users.AddOrUpdate(p => p.Id, guestFaker.Generate(10).ToArray());
+
         }
     }
 }

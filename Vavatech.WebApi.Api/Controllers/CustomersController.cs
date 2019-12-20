@@ -73,6 +73,14 @@ namespace Vavatech.WebApi.Api.Controllers
             return Ok(customer);
         }
 
+        [HttpGet]
+        public IHttpActionResult Get(string city, string street)
+        {
+            var customers = customerService.Get(city, street);
+
+            return Ok(customers);
+        }
+
         [HttpPost]
         public IHttpActionResult Post(Customer customer)
         {

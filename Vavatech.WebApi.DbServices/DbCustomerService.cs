@@ -18,8 +18,11 @@ namespace Vavatech.WebApi.DbServices
 
         public IEnumerable<Customer> Get(string city, string street)
         {
-            return entities.Where(c => c.HomeAddress.City.Contains(city) 
-            && c.HomeAddress.Street.Contains(street)).ToList();
+            return entities
+                .Where(c => c.HomeAddress.City.Contains(city)
+                    && c.HomeAddress.Street.Contains(street)).ToList();
+
+            // return context.Database.SqlQuery<Customer>(sql);
 
         }
 

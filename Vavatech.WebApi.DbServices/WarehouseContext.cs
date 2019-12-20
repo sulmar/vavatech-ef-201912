@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Diagnostics;
 using Vavatech.WebApi.DbServices.Configurations;
 using Vavatech.WebApi.DbServices.Conventions;
 using Vavatech.WebApi.Models;
@@ -17,7 +18,12 @@ namespace Vavatech.WebApi.DbServices
         public WarehouseContext()
             : base("MyConnection")
         {
-           
+            // domyślne ustawienia:
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
+
+            Trace.WriteLine(this.Configuration.ProxyCreationEnabled);
+            Trace.WriteLine(this.Configuration.LazyLoadingEnabled);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

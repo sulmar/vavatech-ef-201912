@@ -37,7 +37,7 @@ namespace Vavatech.WebApi.Api
             container.RegisterType<WarehouseContext>();
 
             container.RegisterType<IOrderService, DbOrderService>();
-
+            container.RegisterType<IUserService, DbUserService>();
 
             container.RegisterType<IAuthenticationFilter, BasicAuthenticationFilter>();
 
@@ -49,6 +49,7 @@ namespace Vavatech.WebApi.Api
            // config.Filters.Add(new BasicAuthenticationFilter());
             config.Filters.Add(container.Resolve<IAuthenticationFilter>());
 
+            config.Formatters.XmlFormatter.UseXmlSerializer = true;
 
             var constraintResolver = new DefaultInlineConstraintResolver();
 

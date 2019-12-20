@@ -12,8 +12,15 @@ namespace Vavatech.WebApi.ConsoleClient
 {
     class Program
     {
+        static async Task DoWork(int i)
+        {
+          //  DoWork(++i);
+        }
+
         static async Task Main(string[] args)
         {
+           // DoWork(0);
+
             Console.WriteLine("Hello World");
 
             // GET api/customers

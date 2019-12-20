@@ -62,6 +62,7 @@
     <Compile Include="DbEntityService.cs" />
     <Compile Include="DbOrderService.cs" />
     <Compile Include="DbProductService.cs" />
+    <Compile Include="DbUserService.cs" />
     <Compile Include="Migrations\201912181349135_InitialCreate.cs" />
     <Compile Include="Migrations\201912181349135_InitialCreate.designer.cs">
       <DependentUpon>201912181349135_InitialCreate.cs</DependentUpon>
@@ -85,6 +86,10 @@
     <Compile Include="Migrations\201912190851551_AddCustomersView.cs" />
     <Compile Include="Migrations\201912190851551_AddCustomersView.designer.cs">
       <DependentUpon>201912190851551_AddCustomersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912201116483_AddEmployeeAndGuest.cs" />
+    <Compile Include="Migrations\201912201116483_AddEmployeeAndGuest.designer.cs">
+      <DependentUpon>201912201116483_AddEmployeeAndGuest.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912190851551_AddCustomersView.resx">
       <DependentUpon>201912190851551_AddCustomersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912201116483_AddEmployeeAndGuest.resx">
+      <DependentUpon>201912201116483_AddEmployeeAndGuest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

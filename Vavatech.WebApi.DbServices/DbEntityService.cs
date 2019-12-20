@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
@@ -9,7 +10,7 @@ using Vavatech.WebApi.Models;
 namespace Vavatech.WebApi.DbServices
 {
     public class DbEntityService<TEntity> : IEntityService<TEntity>
-        where TEntity : EntityBase, new()
+        where TEntity : EntityBase //, new()
     {
         protected readonly WarehouseContext context;
 
@@ -38,7 +39,7 @@ namespace Vavatech.WebApi.DbServices
             return entities.Any(p => p.Id == id);
         }
 
-        public IEnumerable<TEntity> Get()
+        public virtual IEnumerable<TEntity> Get()
         {
             return entities.ToList();
         }
@@ -50,9 +51,11 @@ namespace Vavatech.WebApi.DbServices
 
         public virtual void Remove(int id)
         {
-            TEntity entity = new TEntity { Id = id };
-            entities.Remove(entity);
-            context.SaveChanges();
+            throw new NotImplementedException();
+
+            //TEntity entity = new TEntity { Id = id };
+            //entities.Remove(entity);
+            //context.SaveChanges();
         }
 
         public void Update(TEntity entity)
